@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${APP_DB_HOST}:${APP_DB_PORT}/${APP_DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false&useLegacyDatetimeCode=false
+    username: ${APP_DB_USER}
+    password: ${APP_DB_PASSWORD}
+    hikari:
+      connection-timeout: 9000
+      idle-timeout: 20000
+      max-lifetime: 30000
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: false
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  main:
+    allow-bean-definition-overriding: true
+
+app:
+  jwt:
+    access-private-key-location: ${APP_JWT_ACCESS_PRIVATE_KEY_PATH:classpath:default_access_private_key.pem}
+    refresh-private-key-location: ${APP_JWT_REFRESH_PRIVATE_KEY_PATH:classpath:default_refresh_private_key.pem}
+    expiration:
+      access: ${APP_JWT_ACCESS_TOKEN_EXPIRATION:900000}
+      refresh: ${APP_JWT_REFRESH_TOKEN_EXPIRATION:86400000}
+  s3:
+    endpoint: ${APP_S3_ENDPOINT:}
+    access-key: ${APP_S3_ACCESS_KEY:}
+    secret-key: ${APP_S3_SECRET_KEY:}
+    region: ${APP_S3_REGION:ap-northeast-2}
+    bucket-name: ${APP_S3_BUCKET_NAME:}
+    enable-path-style-access: ${APP_S3_ENABLE_PATH_STYLE_ACCESS:true}
+  file:
+    allow-to-upload-type: ${APP_FILE_ALLOW_TO_UPLOAD:.png,.jpg,.jpeg,.gif,.webp,.svg}
+  base-url: ${APP_BASE_URL:http://localhost:8080}
+  # S3 링크를 가리고 싶을 때, 앞 단에 프록시 서버를 두고 그 서버의 URL을 넣어주면 이쪽으로 Serve 예정.
+  static-url: ${APP_STATIC_URL:}
+
+server:
+  port: 8080
+logging:
+  level:
+    org.springframework: DEBUG
+    me.cocoblue: DEBUG
