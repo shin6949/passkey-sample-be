@@ -16,12 +16,7 @@ public class CacheConfig {
     cacheManager.setAllowNullValues(false);
     cacheManager.setCacheNames(
         List.of(
-        "users", "users_api_resp", "email_check_result", "profile_users", "revoked_tokens",
-        "agent", "agents_list", "site_parent", "site_parent_list",
-            "site_parent_count_by_agent_id",
-            "site_group_count_by_agent_id",
-            "noti_base_list",
-            "noti_mattermost_webhook", "noti_mattermost_webhook_url"
+        "users", "users_api_resp", "email_check_result", "profile_users", "revoked_tokens"
         )
     );
 

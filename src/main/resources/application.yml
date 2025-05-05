@@ -33,6 +33,7 @@ app:
       access: ${APP_JWT_ACCESS_TOKEN_EXPIRATION:900000}
       refresh: ${APP_JWT_REFRESH_TOKEN_EXPIRATION:86400000}
   s3:
+    # Must start with http:// or https://
     endpoint: ${APP_S3_ENDPOINT:}
     access-key: ${APP_S3_ACCESS_KEY:}
     secret-key: ${APP_S3_SECRET_KEY:}

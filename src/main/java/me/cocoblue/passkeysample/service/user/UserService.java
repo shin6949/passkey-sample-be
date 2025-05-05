@@ -67,7 +67,7 @@ public class UserService {
   @Caching(
       put = {
           @CachePut(value = "email_check_result", key = "#request.email()"),
-          @CachePut(value = "users", key = "#result.id()")
+          @CachePut(value = "users", key = "#result.getId()")
       }
   )
   public UserEntity signUp(final SignUpReq request) {
