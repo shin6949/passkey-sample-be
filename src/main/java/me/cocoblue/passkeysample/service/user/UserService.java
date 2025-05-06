@@ -38,7 +38,7 @@ public class UserService {
     final UserEntity userEntity = userRepository.findById(id).orElse(null);
 
     assert userEntity != null;
-    userEntity.setProfileUrl(configureProfileURL(userEntity.getProfileUrl(), userEntity.getEmail()));
+    userEntity.setFullProfileUrl(configureProfileURL(userEntity.getProfileUrl(), userEntity.getEmail()));
 
     return new UserApiResp(userEntity);
   }

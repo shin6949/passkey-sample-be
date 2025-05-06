@@ -1,14 +1,7 @@
 package me.cocoblue.passkeysample.domain.user;
 
+import jakarta.persistence.*;
 import me.cocoblue.passkeysample.domain.common.BaseTime;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -60,6 +53,9 @@ public class UserEntity extends BaseTime {
   @Column(name = "profile_url")
   private String profileUrl;
 
+  @Transient
+  private String fullProfileUrl;
+
   @Column(name = "use_gravatar", nullable = false)
   @ColumnDefault("1")
   private boolean useGravatar = true;
@@ -80,6 +76,7 @@ public class UserEntity extends BaseTime {
         ", password=<DELETED>" +
         ", name='" + name + '\'' +
         ", profileUrl='" + profileUrl + '\'' +
+        ", fullProfileUrl='" + fullProfileUrl + '\'' +
         ", useGravatar=" + useGravatar +
         ", role=" + role +
         ", enabled=" + enabled +

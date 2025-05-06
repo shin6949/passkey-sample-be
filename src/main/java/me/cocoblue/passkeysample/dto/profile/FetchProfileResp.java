@@ -17,7 +17,7 @@ public record FetchProfileResp(
     this(
       userEntity.getEmail(),
       userEntity.getName(),
-      userEntity.getProfileUrl(),
+      userEntity.getFullProfileUrl(),
       userEntity.isUseGravatar(),
       userEntity.getCreatedAt(),
       userEntity.getUpdatedAt()

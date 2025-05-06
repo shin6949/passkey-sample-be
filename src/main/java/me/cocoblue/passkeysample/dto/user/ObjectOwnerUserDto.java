@@ -10,6 +10,6 @@ public record ObjectOwnerUserDto (
     String profileImageUrl
 ) {
   public ObjectOwnerUserDto(UserEntity userEntity) {
-    this(userEntity.getId(), userEntity.getName(), userEntity.getProfileUrl());
+    this(userEntity.getId(), userEntity.getName(), userEntity.getFullProfileUrl());
   }
 }

@@ -180,7 +180,7 @@ public class ProfileService {
     }
 
     if(userEntity.getProfileUrl() != null) {
-      userEntity.setProfileUrl(userService.configureProfileURL(userEntity.getProfileUrl(), userEntity.getEmail()));
+      userEntity.setFullProfileUrl(userService.configureProfileURL(userEntity.getProfileUrl(), userEntity.getEmail()));
     }
 
     return ResponseEntity

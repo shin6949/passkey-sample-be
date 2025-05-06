@@ -9,7 +9,7 @@ public record UserApiResp(String id, String name, boolean useGravatar, String pr
         user.getId(),
         user.getName(),
         user.isUseGravatar(),
-        user.getProfileUrl(),
+        user.getFullProfileUrl(),
         user.getRole().name()
     );
   }
